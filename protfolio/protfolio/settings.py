@@ -21,12 +21,13 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'rkscno3@4j%ztg5g9)&3^iv4e=&5l3lj0p$6s*2=fvzq5%*g9d'
+# SECRET_KEY = 'rkscno3@4j%ztg5g9)&3^iv4e=&5l3lj0p$6s*2=fvzq5%*g9d'
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG')
+# # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -121,6 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = "/images/"
+STATIC_ROOT = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
